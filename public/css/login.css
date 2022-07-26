@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+    --darkcolor:#161616;
+  --bodycolor:#EDf5fe;
+  --yellowish:#fabc3d;
+  --navHading: #212529;
+  --catageryFont:#084177;
+  --primary:#fe346e;
+  --crimson:#dc143c;
+}
+
+body {
+  background: linear-gradient(to left, #00ffff, #00bfff);
+  font-family: poppins;
+}
+.success {
+  height: 3rem;
+  width: 65rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4.8rem 9.6rem grey;
+  margin: 4rem auto 5rem auto;
+  margin-right: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+ 
+}
+
+
+.container {
+  height: 35.2rem;
+  width: 60vw;
+  background-color: white;
+
+  box-shadow: 0 4.8rem 9.6rem grey;
+  margin: 8rem auto 8rem auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .left img {
+  height: 35.2rem;
+}
+
+.container .left {
+  width: 45.8%;
+}
+
+.container .right {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 54.2%;
+}
+.container .right .text {
+  font-size: 3.2rem;
+  color: var(--crimson);
+ 
+
+}
+.text p{
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}
+
+.container .right .loginForm input {
+  width: 25.6rem;
+  height: 4.32rem;
+  margin-top: 1.6rem;
+  padding-left: 1.6rem;
+
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--bodycolor);
+  font-size: 1.6rem;
+
+}
+.container .right .loginForm input:focus {
+  outline: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: .2rem solid black;
+}
+.container .right .loginForm input[type="submit"] {
+ 
+  border: none;
+  background-color: var(--catageryFont);
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lower .teacherLogin{
+  display: none;
+}
+.upper #stubtn,#teabtn{
+  background-color: white;
+  width: 18rem;
+  padding: 1.12rem;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-left: 3.1rem;
+  
+  
+}
+.upper #teabtn{
+  margin-left: 2.25rem;
+
+  background-color: var(--catageryFont);
+
+  color: white;
+}
+.lower .teaForm,.stdForm{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.container .right .lower .signupLink{
+  font-size: 1.4rem;
+  margin-top: 1.2rem;
+ 
+}

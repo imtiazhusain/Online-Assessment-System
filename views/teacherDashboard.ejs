@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/teacherDeshboard.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+   <!-- nav -->
+
+   <header>
+    <%- include('./partials/teacherNavbar.ejs')%>
+   </header>
+
+<section class="userInfoSection">
+
+    <div class="teacherHeading">
+        <h1 >Teacher Dashboard</h1>
+    </div>
+<div class="upperportion">
+    <div class="left">
+        <div class="content">
+            <img src="../img/teachers.png" alt="">
+            
+        </div>
+    </div>
+    <div class="right">
+                  
+        <h2><%=teacherData.firstName%> <%=teacherData.lastName%></h2>
+        <h2><%=teacherData.teacherID%></h2>
+        <h2><%=teacherData.mobileNum%></h2>
+
+
+        
+    </div>
+</div>
+<hr>
+</section>
+
+
+
+<%if(typeof quizes != 'undefined') { %>
+<section class="quizInfoSection">
+    <h1 class="headingInfo">( Created Quizes List )</h1>
+    
+    <div class="quizInfo">
+
+
+        <%quizes.forEach(element => { %>
+    
+            <div class="quiz">
+                
+                <div class="left">
+                    <h2>Subject Name &nbsp;&nbsp; &nbsp;&nbsp;=> </h2>
+                    <h2>Quiz Duration &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                    <h2>Quiz Code  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                    <h2>Quiz Date  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                    <h2>Quiz Time  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+               
+                </div>
+    
+                <div class="right">
+                    <h2> <%=element.quizSubject%></h2>
+                    <h2> <%=element.quizDuration%> Minutes</h2>
+                    <h2> <%=element.quizCode%></h2>
+                    <h2> <%=element.quizDate%></h2>
+                    <h2> <%=element.quizTime%></h2>
+                </div>
+                <div class="viewQuiz">
+                    <form action="/viewquiz/<%=element.quizCode%>" method="get">
+                        <input type="submit" value="View Result">
+                    </form>
+                </div>
+    
+    
+    
+   
+    </div>
+    
+    <%})%>
+    </div>
+</section>
+<%}%> 
+
+
+
+<!-- assignment -->
+
+
+
+<%if(typeof assignments != 'undefined') { %>
+    <section class="quizInfoSection">
+        <h1 class="headingInfo">( Created assignments List )</h1>
+        
+        <div class="quizInfo">
+    
+    
+            <%assignments.forEach(element => { %>
+        
+                <div class="quiz">
+                    
+                    <div class="left">
+                        <h2>Subject Name &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=> </h2>
+                        <h2>Assignment Deadline  &nbsp;&nbsp;=></h2>
+                        <h2>Assignment Code   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                      
+                    </div>
+        
+                    <div class="right">
+                        <h2> <%=element.subjectName%></h2>
+                        <h2> <%=element.assignmentDeadline%></h2>
+                        <h2> <%=element.assignmentCode%></h2>
+                    </div>
+                    <div class="viewQuiz">
+                        <form action="/viewassignment/<%=element.assignmentCode%>" method="get">
+                            <input type="submit" value="View Result">
+                        </form>
+                    </div>
+        
+        
+        
+       
+        </div>
+        
+        <%})%>
+        </div>
+    </section>
+    <%}%> 
+    
+
+  
+<!-- <script src="../js/login.js"></script> -->
+
+</body>
+</html>
+

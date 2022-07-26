@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+ 
+    <link rel="stylesheet" href="./css/lightslider.css">
+
+    <script src="./js/JQuery3.3.1.js"></script>
+    <script src="./js/lightslider.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <%- include('./partials/navbar.ejs')%>
+
+
+        <div class="main-box">
+            <div class="text">
+                <h1>Online Assessment System</h1><br>
+                <h2>The best online Assessment platform for remote 
+                    or face-to-face classrooms. 
+                    <br><br></h2>
+                <div class="flexibaleText"><h2>Here you can create<br><span class="typing"></span></div>
+                </h2>
+                
+            </div>
+            <div class="image">
+
+                <figure class="figure-tag">
+                    <img src="./img/quiz.jpg" alt="">
+                    <figcaption><b>ONLINE ASSESSMENT <br>SYSTEM</b> </figcaption>
+                </figure>
+
+            </div>
+        </div>
+    </header>
+    <div class="offers">
+        <h2>What We Offer</h2>
+        <div class="offers-conatiners">
+            <div class="offers-box1">
+                <div class="icon">
+                    <img src="./img/exam.png" alt="">
+                    <div class="heading">
+                        <h2>Live Exam</h2>
+                    </div>
+                    <div class="offers-text">
+                        <h3> Register for the Exam you want to Appear. You can Register in Signle
+                            click for the Exam of your choice from Dashboard.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="offers-box2">
+                <div class="icon">
+                    <img src="./img/test (1).png" alt="">
+                    <div class="heading">
+                        <h2>MCQs QUIZ</h2>
+                    </div>
+                    <div class="offers-text">
+                        <h3>Register for the Exam you want to Appear. You can Register in Signle
+                            click for the Exam of your choice from Dashboard.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="offers-box3">
+                <div class="icon">
+                    <img src="./img/assignment.png" alt="">
+                    <div class="heading">
+                        <h2>ASSIGNMENT</h2>
+                    </div>
+                    <div class="offers-text">
+                        <h3>Register for the Exam you want to Appear. You can Register in Signle
+                            click for the Exam of your choice from Dashboard.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- feedback -->
+      <!-- Swiper -->
+
+      
+    <div class="feedback">
+
+        <div class="text">
+            <h3>Our Students are our Biggest Fans</h3>
+            <h4>
+                We don't like to brag, but we don't mind
+                 letting our students do it for us.<br> 
+                 Here are a few nice things folks have said about our services 
+                 over the years.
+
+            </h4>
+        </div>
+
+      
+            
+        
+         
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <% feedbackData.forEach(element => { %>
+          <div class="swiper-slide">
+              <div class="feedback1">
+                    <div class="pic">
+                        <img src="./img/feedbackUser.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="upper">
+                           <h2> <%=element.feedback%>;</h2>
+                        </div>
+                        <div class="lower">
+                            <h2><%=element.name%></h2>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <% }); %> 
+          
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+     
+    </div>
+    <div class="feedbackLink">
+        <a href="/feedback">Give Us A Feedback</a>
+    </div>
+<script>
+      $(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });
+</script>
+    
+
+
+<!-- feedback script -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    autoplay:{
+        delay:2500
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
+
+<footer>
+    
+    <div class="left"><p>Developed by IWA</p></div>
+    <div class="right"><p>Copyright @2020</p></div>
+
+   
+</footer>
+    <script src="./js/typeScriptFile.js"></script>
+
+  
+</body>
+</html>

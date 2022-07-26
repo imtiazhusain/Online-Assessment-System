@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/studentDashboard.css">
+    <link rel="stylesheet" href="./css/assignmentSub.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+   <!-- nav -->
+
+   <header>
+    <%- include('./partials/studentNavbar.ejs')%>
+   </header>
+
+
+   
+
+
+<section class="userInfoSection">
+
+   
+<div class="upperportion">
+    <div class="left">
+        <div class="content">
+            <img src="../img/user.png" alt="">
+
+        </div>
+    </div>
+    <div class="right">
+        <h2><%=studentData.firstName%> <%=studentData.lastName%> </h2>
+        <h2><%=studentData.studentID%></h2>
+        <h2><%=studentData.mobileNum%></h2>
+
+    </div>
+</div>
+<hr>
+</section>
+
+
+
+<% if(!count) { %>
+  <div class="assignmentValidaiton">
+    <div class="text">
+      <br>
+      <h2>Assignment Code</h2>
+      <% if(typeof sError != 'undefined') {%>
+          <p><%=sError%></p>
+       <% } %>
+  </div>
+  <div class="codeValidation" >
+      <form action="/assignmentsubmission" method="POST">
+      <input type="text" name="assignmentCode" placeholder="Please Enter The Assignment Code">
+      <div class="btns">    
+          <input type="submit">
+         
+      </div>
+  
+  </form>
+  </div>
+
+ <% }%>
+
+
+ <% if(count) {%>
+
+    <% if(typeof success != 'undefined') {%>
+        <div class="success">
+            <p><%=success%></p>
+        </div>
+        
+     <% } %>
+      <% if(dateNow <= assignmentDeadline){%>
+
+    <div class="container">
+
+        <div class="text">
+            <br>
+            <h2>Assignment Deadline = <%=assignmentDeadline%></h2>
+            <% if(typeof sError != 'undefined') {%>
+                <p><%=sError%></p>
+             <% } %>
+        </div>
+
+        <div class="assignmentdetails" >
+        <a class= "downloadcreatedAssignment" href="/uploads/<%=downloadAssignment%>" target="_blank">Download Assignment</a>
+
+            <form action="/assignmentsubmission" method="post"  enctype="multipart/form-data">
+              
+                <input type="file" name="assignmentFile">
+               <input type="submit" value="Submit Assignment">
+
+           </form>
+        </div>
+          
+        
+</div>
+
+
+
+
+       <% }else {%>
+    
+       <div class="DeadlineNotice" >
+        <h2> Assignment submission date has been passed <br>assignmentDeadline = (<%=assignmentDeadline%>)</h2>
+        </div>
+    <%} %>
+    
+<% } %>
+
+
+
+ </body>
+  </html>
+

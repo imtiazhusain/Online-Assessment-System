@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+  --darkcolor:#161616;
+  --bodycolor:#EDf5fe;
+  --yellowish:#fabc3d;
+  --navHading: #212529;
+  --catageryFont:#084177;
+  --primary:#fe346e;
+  --crimson:#dc143c;
+}
+
+body {
+  background: linear-gradient(to left, #00ffff, #00bfff);
+  font-family: poppins;
+}
+
+
+
+.container {
+  height: 74rem;
+  width: 60vw;
+  background-color: white;
+  box-shadow: 0 4.8rem 9.6rem grey;
+  margin: 5rem auto 8rem auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .left{
+   
+    border-right: 2px solid var(--catageryFont);
+
+
+}
+
+.container .left .loginForm,.container .right .loginForm{
+  margin-top: 2rem;
+}
+
+.container .left,.container .right  {
+    display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 50%;
+
+}
+.container .text p{
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}
+.container .left .text ,.container .right .text {
+
+  font-size: 3.2rem;
+  color: var(--crimson);
+ 
+}
+
+.container .right .loginForm input,.container .left .loginForm input {
+  width: 25.6rem;
+  height: 4.32rem;
+  margin-top: 1.6rem;
+  padding-left: 1.6rem;
+ 
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--bodycolor);
+  font-size: 1.6rem;
+
+}
+.container .right .loginForm input:focus,.container .left .loginForm input:focus {
+  outline: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: .2rem solid black;
+}
+.container .right .loginForm input[type="submit"],.container .left .loginForm input[type="submit"] {
+
+  border: none;
+  background-color: var(--catageryFont);
+
+  color: white;
+  font-size: 1.6rem;
+ 
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+
+.container .loginForm  .loginLink{
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+   
+  }
+
+ 
+
+
+

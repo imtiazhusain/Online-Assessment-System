@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/feedback.css">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- nav -->
+
+    <header>
+        <%- include('./partials/navbar.ejs')%>
+        </header>
+
+    <div class="feedbackContainer" >
+        <div class="text">
+            <br>
+            <h2>Enter your Feedback</h2>
+        </div>
+        <div class="feedbackDetails">
+            <form action="/feedback" method="POST">
+                <input type="text" placeholder="Enter Your Name" name="name" id="qSub" required>
+                <textarea name="feedback" id="" cols="30" rows="40" required></textarea>
+            <br>
+            <input type="submit"  value="Submit Feedback" >
+            <!-- <button onclick="createQuiz()">Create Quiz</button> -->
+        </form>
+        </div>
+        
+    </div>
+
+     
+
+ 
+ 
+<!-- <script src="./js/login.js"></script> -->
+
+</body>
+</html>

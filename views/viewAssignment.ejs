@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/teacherDeshboard.css">
+  
+    <title>Document</title>
+</head>
+<body>
+ 
+ <!-- nav -->
+
+ <header>
+    <%- include('./partials/teacherNavbar.ejs')%>
+   </header>
+
+<section class="userInfoSection">
+
+    <div class="teacherHeading">
+        <h1 >Teacher Dashboard</h1>
+    </div>
+<div class="upperportion">
+    <div class="left">
+        <div class="content">
+            <img src="../img/teachers.png" alt="">
+            
+        </div>
+    </div>
+    <div class="right">
+                  
+        <h2><%=teacherData.firstName%> <%=teacherData.lastName%></h2>
+        <h2><%=teacherData.teacherID%></h2>
+        <h2><%=teacherData.mobileNum%></h2>
+
+
+        
+    </div>
+</div>
+<hr>
+</section>
+
+
+
+    <%if(typeof assignments != 'undefined') { %>
+        <section class="quizInfoSection">
+            
+            
+            <div class="quizInfo">
+        
+        
+                <%assignments.forEach(element => { %>
+            
+                    <div class="quiz">
+                        
+                        <div class="left">
+                            <h2>Student Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=> </h2>
+                            <h2>Student ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                            <h2>Assignment Deadline  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                            <h2>assignmentCode &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;=></h2>
+                            <h2>Download Assignment  &nbsp; &nbsp;&nbsp;=></h2>
+                           
+                        </div>
+            
+                        <div class="right">
+                            <h2> <%=element.studentName%></h2>
+                            <h2> <%=element.studentID%></h2>
+                            <h2> <%=element.assignmentDeadline%></h2>
+                            <h2> <%=element.assignmentCode%></h2>
+                            
+                           <h2><a href="/uploads/<%=element.assignmentName%>" target="_blank">Click TO Download</a></h2>
+                        </div>
+                        
+            
+            
+            
+           
+            </div>
+            
+            <%})%>
+            </div>
+        </section>
+        <%}   %>
+            
+        
+          
+
+
+            <%if(assignments.length <= 0) { %>
+                <div class="noResultFOund">
+                    <h2 style="color: red;">No Assignment Submitted Yet</h2>
+                </div>
+                
+
+                <% } %>
+</body>
+</html>

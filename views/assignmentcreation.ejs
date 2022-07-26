@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/teacherDeshboard.css">
+    <link rel="stylesheet" href="./css/assignment.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- nav -->
+    <header>
+        <%- include('./partials/teacherNavbar.ejs')%>
+       </header>
+
+<section class="userInfoSection">
+
+    <div class="teacherHeading">
+        <h1 >Teacher Dashboard</h1>
+    </div>
+<div class="upperportion">
+    <div class="left">
+        <div class="content">
+            <img src="../img/teachers.png" alt="">
+
+        </div>
+    </div>
+    <div class="right">
+                  
+        <h2><%=teacherData.firstName%> <%=teacherData.lastName%></h2>
+        <h2><%=teacherData.teacherID%></h2>
+        <h2><%=teacherData.mobileNum%></h2>
+
+    </div>
+</div>
+<hr>
+</section>
+
+
+<!-- success msg if item inserted  successfully -->
+
+    <% if(typeof success != 'undefined') {%>
+        <div class="success">
+            <p><%=success%></p>
+        </div>
+        
+     <% } %>
+
+     <!-- form continer for adding item details to Database -->
+    <div class="container">
+
+                    <div class="text">
+                        <br>
+                        <h2>Enter Assignment Details</h2>
+                        <% if(typeof sError != 'undefined') {%>
+                            <p><%=sError%></p>
+                         <% } %>
+                    </div>
+
+                    <div class="assignmentdetails" >
+                        <form action="/assignmentcreation" method="post" enctype="multipart/form-data">>
+                            <input type="text" placeholder="Enter Subject Name" name="subjectName" >
+                            <input placeholder="Enter Assignment Deadline" name ="assignmentDeadline" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')"  id="date" required>
+                            <input type="file" name="assignmentFile">
+                             <input type="submit" value="Submit Assignment">
+
+                       </form>
+                    </div>
+                      
+                    
+    </div>
+                
+</main>
+
+</body>
+</html>
+
+
+
+
+

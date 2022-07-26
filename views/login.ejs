@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/login.css">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- nav -->
+    <header>
+
+   
+    <%- include('./partials/navbar.ejs')%>
+   </header>
+
+    <main>
+        <% if(typeof success != 'undefined' ) {%>
+            <div class="success">
+                <h2><%=success%></h2>
+            </div>
+
+       <% } %>
+
+        <div class="container">
+            <div class="left">
+                <img src="./img/login.jpg" alt="">
+            </div>
+            <div class="right">
+                <div class="upper">
+                    <button id="stubtn" onclick="show(0)">
+                        Student
+                    </button>
+                    <button id="teabtn"onclick="show(1)">
+                        Teacher
+                    </button>
+                </div>
+                <div class="lower">
+                    <div class="studentLogin" id="studentLogin">
+                        <div class="stdForm">
+                        <div class="text">
+                            <h2>STUDENT</h2>
+                            <% if(typeof studentError != 'undefined') {%>
+                                <p><%=studentError%></p>
+                             <% } %>
+                        </div>
+                        <div class="loginForm">
+                             <form action="/login" method="POST">
+                            <!-- <label for="username">Username</label><br> -->
+                                  <input type="text" placeholder="Email address or username" name="StudentEmail" value="<%= typeof email != 'undefined' ? email : '' %>"><br>
+                            <!-- <label for="password">Password</label><br> -->
+                                <input type="password" placeholder="Password" name="StudentPassword" ><br>
+                                <input type="submit">
+        
+                            </form>
+                        </div>
+                        <div class="signupLink">
+                            <p> Do you Have Account?  <a href="/signup">Signup Here</a></p>
+                           </div>
+                    </div>
+                </div>
+
+
+
+                    <!--TEacher LOGIn  -->
+                    <div class="teacherLogin" id="teacherLogin">
+                        <div class="teaForm">
+                            <div class="text">
+                            <h2>TEACHER</h2>
+                            <% if(typeof teacherError != 'undefined') {%>
+                                <p><%=teacherError%></p>
+                             <% } %>
+                            </div>
+                            <div class="loginForm">
+                                 <form action="/login" method="POST">
+                            <!-- <label for="username">Username</label><br> -->
+                                  <input type="text" placeholder="Email address or username" name="TeacherEmail" required value="<%= typeof tEmail != 'undefined' ? tEmail : '' %>"><br>
+                            <!-- <label for="password">Password</label><br> -->
+                                <input type="password" placeholder="Password" name="TeacherPassword" required><br>
+                                <input type="submit">
+        
+                                </form>
+                            </div>
+                            <div class="signupLink">
+                                <p> Do you Have Account?  <a href="/signup">Signup Here</a></p>
+                               </div>
+                    </div>
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </main>
+   
+    <footer>
+    
+        <div class="left"><p>Developed by IWA</p></div>
+        <div class="right"><p>Copyright @2020</p></div>
+    
+       
+    </footer>
+<script src="./js/login.js"></script>
+
+</body>
+</html>

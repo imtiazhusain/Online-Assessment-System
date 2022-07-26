@@ -1,0 +1,19 @@
+<div class="quizSize " id="quizSize" >
+    <div class="text">
+        <br>
+        <h2>Enter Quiz Details</h2>
+    </div>
+    <div class="quizdetails">
+        <form action="/createquiz" method="POST">
+        <input type="number" id="qSize" name="quizSize"required placeholder="Enter the number of questions">
+        <input placeholder="Enter the date of quiz" name ="quizDate" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')"  id="date" required>
+        <input type="text" name="quizTime" onfocus="(this.type = 'time')" onblur="(this.type = 'text')" placeholder="Enter the starting time" required>
+        <input type="number"id ="duration" name="quizDuration" placeholder="Enter the duration in Minutes" required>
+        
+        <!-- <input type="submit" onclick="createQuiz()" value=" Start Create Quiz" required> -->
+        <input type="submit"  value=" Start Create Quiz" >
+        <!-- <button onclick="createQuiz()">Create Quiz</button> -->
+    </form>
+    </div>
+    
+</div>

@@ -1,0 +1,184 @@
+.assignmentValidaiton{
+    height: 27rem;
+    width: 60vw;
+    background-color: white;
+    box-shadow: 0 4.8rem 9.6rem grey;
+    margin: 5rem auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    text-align: center;
+   
+  }
+
+  .assignmentValidaiton input{
+ 
+    margin-bottom: 2rem;
+    width: 80%;
+    height: 4rem;
+
+    padding: 1.6rem;
+
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--bodycolor);
+    font-size: 1.6rem;
+  }
+
+
+
+  .assignmentValidaiton .text h2{
+    color: crimson;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.assignmentValidaiton .text p{
+    margin: 1rem 0;
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}
+
+
+
+.assignmentValidaiton input[type="submit"],.assignmentValidaiton a {
+   
+padding: 1rem 7rem;
+
+margin-left: 2rem;
+border-radius: 2rem;
+text-decoration: none;
+
+border: none;
+background-color: var(--catageryFont);
+
+color: white;
+font-size: 1.6rem;
+
+cursor: pointer;
+letter-spacing: 1px;
+
+}
+
+.assignmentValidaiton a {
+    background-color: var(--yellowish);
+    color: black;
+    padding: 1rem;
+    font-size: 1.5rem;
+    
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    width: 30%;
+    border-radius: 1rem;
+    border: none;
+    text-decoration: none;
+    margin: auto;
+  
+  }
+
+
+  .container{
+    height: 25rem;
+    width: 60vw;
+    background-color: white;
+    border-radius: 0.8rem 4.8rem 0.8rem 4.8rem;
+    box-shadow: 0 4.8rem 9.6rem grey;
+    margin: 5rem auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .container input{
+ 
+    margin-bottom: 2rem;
+    width: 60%;
+    height: 5rem;
+   
+    padding: 1.6rem;
+    
+    border-radius: .5rem;
+    border: none;
+    background-color: var(--bodycolor);
+    font-size: 1.6rem;
+  }
+
+
+  .container input[type="submit"] {
+    background-color: var(--yellowish);
+    background-color: #fabc3d;
+  color: black;
+  padding: .5rem;
+  font-size: 1.5rem;
+
+  text-align: center;
+  font-weight: bold;
+  width: 60%;
+  height: 4rem;
+  border-radius: 1rem;
+border: none;
+text-decoration: none;
+cursor: pointer;
+
+  }
+
+  .container .text h2{
+      color: crimson;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+  }
+
+  .container .text p{
+      margin: 1rem 0;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: bold;
+  }
+
+
+  .success {
+  height: 3rem;
+  width: 65rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4.8rem 9.6rem grey;
+  margin: 4rem auto 0 auto;
+
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+ 
+}
+.success p{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .DeadlineNotice{
+    height: 20rem;
+    width: 60vw;
+    background-color: white;
+    border-radius: 0.8rem 4.8rem 0.8rem 4.8rem;
+    box-shadow: 0 4.8rem 9.6rem grey;
+    margin: 5rem auto 2rem auto;
+    font-size: 1.6rem;
+    color: red;
+    text-align: center;
+    padding: 4rem;
+  }
+
+
+  .assignmentdetails a{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 1rem;
+  
+  }

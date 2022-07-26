@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+    --darkcolor:#161616;
+    --bodycolor:#EDf5fe;
+    --yellowish:#fabc3d;
+    --navHading: #212529;
+    --catageryFont:#084177;
+    --primary:#fe346e;
+    --crimson:#dc143c;
+}
+
+body {
+  background: linear-gradient(to left, #00ffff, #00bfff);
+  font-family: poppins;
+}
+
+#movies {
+    border: none;
+    
+}  
+
+
+.movies-box {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    flex-direction: column;
+ 
+    box-shadow: 0 3rem 6rem grey;
+    margin: 20px;
+    
+    border-radius: 20px;
+    overflow: hidden;
+ 
+    background-color: var(--catageryFont);
+    margin-bottom: 7rem;
+ 
+   
+
+
+    border: none;
+    
+   
+}
+
+.movies-box .team-img {
+    position: absolute;
+    top: 10px;
+    z-index: 3;
+    margin-bottom: 0;
+    text-align: center;
+   
+}
+
+
+.icons{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.name{
+    
+    color:white;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+}
+
+
+
+.movies-box .upper {
+    
+    width: 300px;
+    height: 100px;
+    background: linear-gradient(to right,#00FFFF,#00BFFF);
+
+  
+}
+.movies-box .team-img a{
+    margin: 5px;
+}
+
+
+.team-img img[src*="png"]{
+    width: 200px;
+    height: 200px;
+   
+}
+
+.facebook-icon{
+    width: 40px;
+}
+.movies-box .team-img .icons a img {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+#movies-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.movies-box a {
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: vertical;
+    overflow: hidden;
+    text-transform: ellipsis;
+    color: #3a3a3a;
+    margin: 20px;
+}
+
+
+.movies-box:hover{
+    transform: translateY(-25px);
+    transition: all ease 0.2s;
+}
+
+#movies .hfd{
+    text-align: center;
+    font-size: 3rem;
+    margin: 3rem 0 3rem 0;
+  }
+
+

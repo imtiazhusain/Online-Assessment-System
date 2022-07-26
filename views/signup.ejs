@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- nav -->
+
+    <header>
+        <%- include('./partials/navbar.ejs')%>
+    
+    </header>
+
+  
+    <main>
+
+
+        <div class="container">
+            <!-- student -->
+                <div class="left">
+                    <div class="studentLogin" id="studentLogin">
+                   
+                        <div class="text">
+                            <br>
+                            <h2>STUDENT</h2>
+                            <% if(typeof sError != 'undefined') {%>
+                                <p><%=sError%></p>
+                             <% } %>
+                        </div>
+                        <div class="loginForm" >
+                            <form action="/signup" method="POST">
+
+
+
+                                <input type="text" placeholder="First Name" name="FirstName" value="<%= typeof firstName != 'undefined' ? firstName : '' %>"><br>
+                                <input type="text" placeholder="Last Name" name="LastName" value="<%= typeof lastName != 'undefined' ? lastName : '' %>"><br>
+                                <input type="email" placeholder="Email" name="Email" value="<%= typeof Email != 'undefined' ? Email : '' %>"><br>
+                                <input type="text" placeholder="Student ID" name="StudentID" value="<%= typeof studentID != 'undefined' ? studentID : '' %>"><br>
+                                <input type="text" placeholder="CNIC or Passport ID" name="CNIC" value="<%= typeof studentCNIC != 'undefined' ? studentCNIC : '' %>"><br>
+                                <input type="text" placeholder="Mobile Number"  name="MobileNum" value="<%= typeof studentrMoBNum != 'undefined' ? studentrMoBNum : '' %>"><br>
+                                <input type="password" placeholder="Password" name="Password"><br>
+                                <input type="password" placeholder="Confirm Password" name="ConfirmPassword"><br>
+                                <input type="submit">
+    
+                           </form>
+                           <div class="loginLink">
+                            <p> Alraedy have an Account?  <a href="/login">Login Here</a></p>
+                           </div>
+                        </div>
+                  
+                    </div>
+                </div>   
+           
+                <!-- teacher -->
+
+            <div class="right">
+                    <div class="teacherLogin" id="teacherLogin">
+                        
+                            <div class="text">
+                                <br>
+                                <h2>TEACHER</h2>
+                                <% if(typeof error != 'undefined') {%>
+                                    <p><%=error%></p>
+                                 <% } %>   
+                            </div>
+                            <div class="loginForm">
+                                 <form action="/signup" method="POST">
+           
+                                    <input type="text" placeholder="First Name" name="FirstName" value="<%= typeof tFirstName != 'undefined' ? tFirstName : '' %>"><br>
+                                    <input type="text" placeholder="Last Name" name="LastName" value="<%= typeof tLastName != 'undefined' ? tLastName : '' %>"><br>
+                                    <input type="email" placeholder="Email" name="Email" value="<%= typeof tEmail != 'undefined' ? tEmail : '' %>"><br>
+                                    <input type="text" placeholder="Teacher ID" name="TeacherID" value="<%= typeof teacherID != 'undefined' ? teacherID: '' %>"><br>
+                                    <input type="text" placeholder="Institute" name="Institute" value="<%= typeof teacherInstitute != 'undefined' ? teacherInstitute : '' %>"><br>
+                                    <input type="text" placeholder="Mobile Number" name="MobileNum" value="<%= typeof teacherMoBNum != 'undefined' ? teacherMoBNum : '' %>"><br>
+                                    <input type="password" placeholder="Password" name="Password"><br>
+                                    <input type="password" placeholder="Confirm Password" name="ConfirmPassword"><br>
+                                    <input type="submit">
+        
+                                </form>
+                                <div class="loginLink">
+                                    <p> Alraedy have an Account?  <a href="/login">Login Here</a></p>
+                                   </div>
+                            </div>
+                       
+                    </div>
+            </div>
+               
+
+
+        </div>
+                    <!--TEacher LOGIn  -->
+                   
+                   
+         
+    </main>
+   
+
+ 
+    <footer>
+    
+        <div class="left"><p>Developed by IWA</p></div>
+        <div class="right"><p>Copyright @2020</p></div>
+    
+       
+    </footer>
+<!-- <script src="./js/login.js"></script> -->
+
+</body>
+</html>

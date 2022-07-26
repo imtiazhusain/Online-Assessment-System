@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/home.css">
+
+    <link rel="stylesheet" href="./css/teacherDeshboard.css">
+
+    <link rel="stylesheet" href="./css/createMCQs.css">
+
+</head>
+<body>
+
+ <!-- nav -->
+
+ <header>
+    <%- include('./partials/teacherNavbar.ejs')%>
+   </header>
+
+<section class="userInfoSection">
+
+    <div class="teacherHeading">
+        <h1 >Teacher Dashboard</h1>
+    </div>
+<div class="upperportion">
+    <div class="left">
+        <div class="content">
+            <img src="../img/teachers.png" alt="">
+            
+        </div>
+    </div>
+    <div class="right">
+                  
+        <h2><%=teacherData.firstName%> <%=teacherData.lastName%></h2>
+        <h2><%=teacherData.teacherID%></h2>
+        <h2><%=teacherData.mobileNum%></h2>
+
+
+        
+    </div>
+</div>
+<hr>
+</section>
+
+
+
+    <% if(!count) { %>
+        <div class="quizSize " id="quizSize" >
+            <div class="text">
+                <br>
+                <h2>Enter Quiz Details</h2>
+            </div>
+            <div class="quizdetails">
+                <form action="/createquiz" method="POST">
+                <input type="number" id="qSize" name="quizSize"required placeholder="Enter the number of questions">
+                <input placeholder="Enter the date of quiz" name ="quizDate" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')"  id="date" required>
+                <input type="text" name="quizTime" onfocus="(this.type = 'time')" onblur="(this.type = 'text')" placeholder="Enter the starting time" required>
+                <input type="number"id ="duration" name="quizDuration" placeholder="Enter the duration in Minutes" required>
+                <input type="text" placeholder="Enter Subject Name" name="quizSubject" id="qSub" required>
+                <!-- <input type="submit" onclick="createQuiz()" value=" Start Create Quiz" required> -->
+                <br>
+                <input type="submit"  value=" Start Creating Quiz" >
+                <a href="/teacherdashboard">Cancel Quiz</a>
+            </form>
+            </div>
+            
+        </div>
+
+        <% }%>
+    
+
+      
+        <% if(count) { %>
+            <%if(!success){%>
+
+            <div class="container" id="container" >
+                <div class="text">
+                    <br>
+                    <h2>Number of Quesitons Created = <%=quizNo%></h2>
+                </div>
+                <div class="quizForm">
+                    <form action="/createquiz" method="POST">
+                <textarea required name="question" id="question" cols="30" rows="10" placeholder="Enter your Question" class="question"></textarea><br>
+                <!-- <label for="opitonA">A:</label> -->
+               <input required type="text" id="optionA"  placeholder="Option A" name="optionA">
+                
+                <input required type="text" id="optionB" placeholder="Option B" name="optionB">
+    
+                <input required type="text" id="optionC" placeholder="Option C" name="optionC">
+           
+                <input required type="text" id="optionD" placeholder="Option D" name="optionD">
+    
+                <select required name="correctOption" id="correctOption">
+                    <option value="" disabled selected>Select your correct option</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+              
+                <input type="submit">
+                <a href="/teacherdashboard">Cancel Quiz</a>
+            </form>
+            </div>
+        </div>
+
+            <% }%>
+
+            <% }%>
+
+
+        
+
+            <%if(success){%>
+                <div class="quizSuccess"  >
+                    <div class="quizMsg">
+                        <br>
+                        <h2>Your quiz has been succeffully created.</h2>
+                        <h2> Details are given bellow</h2><br>
+                       
+                    </div>
+                    <div class="printQuizDetails">
+
+                        <div class="left">
+                            <h3>NO of Quesitons &emsp;=></h3>
+                            <h3>Quiz Date &emsp;&emsp;&emsp;&emsp;=></h3>
+                            <h3>Quiz Time &emsp;&emsp;&emsp;&emsp;=></h3>
+                            <h3>Quiz Duration &nbsp&emsp;&emsp; => </h3>
+                            <h3>Quiz Subject &emsp;&emsp;&emsp;=> </h3>
+                            <h3>Quiz Code &emsp;&emsp;&emsp;&emsp;=> </h3>
+                           
+                            
+                        </div>
+                        <div class="right">
+                            <h3><%=NoOfQuestesions%></h3>
+                            <h3><%=quizDate%></h3>
+                            <h3><%=quizTime%></h3>
+                            <h3><%=quizDuration%></h3>
+                            <h3><%=quizSubject%></h3>
+                            <h3><%=quizCode%></h3>
+                        </div>
+                        
+                        
+                       
+                   
+                </div>
+                <h3>Share the above Quiz Code with students</h3>
+                <a href="/teacherdashboard">GO Back To Dashboard</a>
+            </div>
+                <% }%>
+
+               
+    <!-- <div class="quizSize " id="quizSize" >
+        <div class="text">
+            <br>
+            <h2>Enter Quiz Details</h2>
+        </div>
+        <div class="quizdetails">
+            <form action="/createquiz" method="POST">
+            <input type="number" id="qSize" name="quizSize"required placeholder="Enter the number of questions">
+            <input placeholder="Enter the date of quiz" name ="date" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')"  id="date" required>
+            <input type="text" name="time" onfocus="(this.type = 'time')" onblur="(this.type = 'text')" placeholder="Enter the starting time" required>
+            <input type="number"id ="duration" name="duration" placeholder="Enter the duration in Minutes" required>
+            
+            <!-- <input type="submit" onclick="createQuiz()" value=" Start Create Quiz" required> -->
+            <!-- <input type="submit"  value=" Start Create Quiz" > -->
+            <!-- <button onclick="createQuiz()">Create Quiz</button> -->
+        <!-- </form> -->
+        <!-- </div> -->
+        
+    <!-- </div> --> -->
+    
+
+    <!-- <script>
+        var q = document.getElementsByClassName("question");
+        var qq = document.getElementsById("optionA");
+        function addingData(){
+            console.log(qq.value)
+        }
+    </script> -->
+
+    <script>
+        // var container = document.getElementById("container");
+        // var quizSizecontainer = document.getElementById("quizSize");
+       
+        // var quizeSize = ""
+        // var QuizDuration = ""
+
+        // var count = 0;
+    
+        // function createQuiz(){
+        
+            // quizeSize = document.getElementById("qSize").value;
+        
+
+        // if(quizeSize == null ||QuizDuration == null ){
+        //     alert('please give the quiz Size')
+       
+
+        // }else{
+        //     if(quizeSize <= 0 || QuizDuration<=0 ){
+        //     alert('0 and -ve is not accepted')
+
+        //     }else{
+            // quizSizecontainer.style.display = "none";
+          
+            // container.style.display = "block"
+            // }
+            
+        // }
+        
+
+
+           
+    
+
+
+
+    //     var container = document.getElementById("container");
+    //     var quizSizecontainer = document.getElementById("quizSize");
+    
+        
+
+    //     if(row == ""){
+    //         alert('please fill the value')
+    //     console.log(row);
+
+    //     }else{
+    //         if(row <= 0){
+    //         alert('0 and -ve is not accepted')
+
+    //         }else{
+    //         for (let i = 0; i < row; i++) {
+    //             quizData[i] =[];
+    //         console.log(quizData);
+    //         }
+    //         quizSizecontainer.style.display = "none";
+          
+    //         container.style.display = "block"
+    //         }
+            
+    //     }
+        
+
+
+           
+    // }
+
+
+
+    // quiz data
+
+        // creating variable of each input
+
+    // var question= document.getElementById("question");
+    // var optionA= document.getElementById("optionA");
+    // var optionB= document.getElementById("optionB");
+    // var optionC= document.getElementById("optionC");
+    // var optionD= document.getElementById("optionD");
+    // var correctOption= document.getElementById("correctOption");
+
+    // function addingData(){
+
+
+    //     quizData[count][0] = question.value;
+    //     quizData[count][1] = optionA.value;
+    //     quizData[count][2] = optionB.value;
+    //     quizData[count][3] = optionC.value;
+    //     quizData[count][4] = optionD.value;
+    //     quizData[count][5] = correctOption.value;
+        
+    //     console.log(quizData);
+
+    //     count++;
+    //     question.value =""
+    //     optionA.value =""
+    //     optionB.value=""
+    //     optionC.value=""
+    //     optionD.value=""
+    //     correctOption.value=""  
+    // }
+    </script>
+
+       
+</body>
+</html>

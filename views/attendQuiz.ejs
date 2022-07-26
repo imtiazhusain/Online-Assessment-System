@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/studentDashboard.css">
+    <link rel="stylesheet" href="./css/attendQuiz.css">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- nav -->
+
+    <header>
+        <%- include('./partials/studentNavbar.ejs')%>
+       </header>
+
+
+       <section class="userInfoSection">
+   
+        <div class="upperportion">
+            <div class="left">
+                <div class="content">
+                    <img src="../img/user.png" alt="">
+                    
+                </div>
+            </div>
+            <div class="right">
+                <h2><%=studentData.firstName%> <%=studentData.lastName%> </h2>
+                <h2><%=studentData.studentID%></h2>
+                <h2><%=studentData.mobileNum%></h2>
+        
+            </div>
+        </div>
+        <hr>
+        </section>
+        
+
+
+    <% if(!count) { %>
+        <div class="quizCode">
+            <div class="text">
+                <br>
+                <h2>STUDENT</h2>
+                <% if(typeof sError != 'undefined') {%>
+                    <p><%=sError%></p>
+                 <% } %>
+            </div>
+            <form action="/attendQuiz" method="POST">
+            <input type="text" name="quizCode" placeholder="Please Enter The Quiz Code">
+            <div class="btns">    
+                <input type="submit">
+                <a href="/studentdashboard">Cancel Quiz</a>
+            </div>
+        
+        </form>
+        </div>
+
+       <% }%>
+   
+       
+     
+
+
+
+       <% if(count) { %>
+     
+        <% if(quizDate == currentDate && currentTime >= quizTime && CurrentTImeInSeconds <= stopQuizTime ) {%>
+            <div class="countdownContainer">
+                <p id="countdown"></p>
+                <p>Attemp all MCQ's before  duration otherwise quiz won't be entertain</p>
+            </div>
+            <div class="quizContiner">
+                <h2 class="question">This is  a Question</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="option" id="A" class="radiobtn">
+                        <label for="option" id="lOptionA" >Opotin A</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="option" id="B" class="radiobtn">
+                        <label for="option" id="lOptionB">Opotin B</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="option" id="C"  class="radiobtn">
+                        <label for="option" id="lOptionC">Opotin C</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="option" id="D"  class="radiobtn">
+                        <label for="option" id="lOptionD">Opotin D</label>
+                    </li>
+                </ul>
+                <button onclick="loadNextQuestion()">next Question</button>
+            </div>
+    
+    <div class="quizSuccess">
+        <h1>your quiz has been submitted successully</h1>
+        <a href="/studentdashboard">Go TO Dashboard</a>
+    </div>
+    
+    
+            <script>
+                var j =0;
+                 
+                //    let row = parseInt(<%=quizData.length%>)
+                   let noOfQuestions = <%=quizData.length%>
+                  
+                let quizQuestions =[];
+                for (let i = 0; i < noOfQuestions; i++) {
+                    quizQuestions[i] =[] ;
+            
+    
+                }
+             <%  quizData.forEach(element => { %>
+         quizQuestions[j][0] = '<%=element.question%>';
+         quizQuestions[j][1] = '<%=element.optionA%>';
+         quizQuestions[j][2] = '<%=element.optionB%>';
+         quizQuestions[j][3] = '<%=element.optionC%>';
+         quizQuestions[j][4] = '<%=element.optionD%>';
+         quizQuestions[j][5] = '<%=element.correctAns%>';
+         quizQuestions[j][6] = '<%=element.quizCode%>';
+         quizQuestions[j][7] = '<%=element.quizDate%>';
+         quizQuestions[j][8] = '<%=element.quizTime%>';
+    
+       j++;
+    
+     <%})%>;
+      
+     let quizDurationMnts = <%=quizDuration%>
+    //  let quizSize =
+     let quizSize =  <%=quizSize%>
+
+       
+            </script>
+            
+         <% } else { %>
+            <div class="notQuizTime quizCode">
+                <h2>quiz will be contucted at <%=quizDate%> <%=quizTime%></h2>
+            </div>
+            <% } %>
+
+
+
+       
+        <% }%>
+        
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script  src="./js/attendQuiz.js"></script>
+    
+</body>
+</html>
